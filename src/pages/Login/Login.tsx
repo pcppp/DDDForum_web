@@ -1,37 +1,19 @@
-import TextField from '@mui/material/TextField';
-import { type ChangeEvent } from 'react';
+import { Paper } from '@mui/material';
+import LoginForm from './component/LoginForm';
 
-const Login = ({
-  changeUserValue,
-}: {
-  changeUserValue: (
-    field: string,
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-}) => {
+const Login = () => {
   return (
     <>
-      <TextField
-        required
-        id="outlined-required"
-        label="username"
-        fullWidth
-        onChange={(e) => changeUserValue('username', e)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="email"
-        variant="outlined"
-        onChange={(e) => changeUserValue('email', e)}
-        fullWidth
-      />
-      <TextField
-        id="outlined-basic"
-        label="password"
-        variant="outlined"
-        onChange={(e) => changeUserValue('password', e)}
-        fullWidth
-      />
+      <div className="flex h-full w-full items-center justify-center p-6">
+        <div className="w-full max-w-2xl min-w-[50vw] min-h-[50vw]">
+          <Paper elevation={18} className="w-full p-12 ">
+            <h1 className="text-5xl font-bold text-gray-800 p-12">{'Login'}</h1>
+            <div className="flex flex-col gap-8 mt-8 p-20 pt-0">
+              <LoginForm></LoginForm>
+            </div>
+          </Paper>
+        </div>
+      </div>
     </>
   );
 };

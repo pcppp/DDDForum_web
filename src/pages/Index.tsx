@@ -24,17 +24,23 @@ function Routes() {
 function Index() {
   return (
     <ThemeProvider theme={theme}>
-      <UserProvider>
-        <div className="h-[8vh] w-[100vw] bg-amber-100">
-          <Toaster richColors position="top-right" />
-          <Header></Header>
-        </div>
-        <div className="h-[92vh] w-[100vw] p-4 bg-amber-200">
-          <BrowserRouter>
-            <Routes />
-          </BrowserRouter>
-        </div>
-      </UserProvider>
+      <BrowserRouter>
+        <UserProvider>
+          {/* 使用 flex 布局更好地控制高度 */}
+          <div className="h-screen w-screen flex flex-col">
+            {/* Header 区域 */}
+            <div className="h-16 bg-amber-100 flex-shrink-0">
+              <Header />
+            </div>
+
+            {/* 主内容区域 - 自动占满剩余空间并可滚动 */}
+            <div className="flex-1 p-4 bg-amber-200 min-h-0" id="container">
+              <Toaster richColors position="top-right" />
+              <Routes />
+            </div>
+          </div>
+        </UserProvider>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

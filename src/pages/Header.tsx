@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { useUser } from '../contents/userProvider';
+import { NavLink } from 'react-router';
 // import { FaUserCircle, FaComments, FaBars } from 'react-icons/fa';
 
 function Header() {
@@ -8,13 +9,12 @@ function Header() {
   const handleLogout = () => {
     clearUser();
   };
-
   return (
     <header className="h-full  shadow-lg sticky top-0 z-50">
       <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-full flex justify-between items-center ">
           {/* 左侧 - 论坛logo和名称 */}
-          <div className="flex items-center space-x-4">
+          <NavLink to="/" className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <div>
                 <h1 className="text-2xl font-bold text-black tracking-tight">
@@ -25,7 +25,7 @@ function Header() {
                 </p>
               </div>
             </div>
-          </div>
+          </NavLink>
 
           {/* 右侧 - 用户信息 */}
           <div className="flex items-center space-x-4">
@@ -44,16 +44,11 @@ function Header() {
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <a
-                  href="/login"
-                  className="text-amber-600 hover:text-yellow-300 transition-colors duration-200 font-medium">
+                <NavLink
+                  to="/login"
+                  className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full font-medium transition-all duration-200 shadow-md hover:shadow-lg">
                   登录
-                </a>
-                <a
-                  href="/register"
-                  className="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-4 py-2 rounded-full font-medium transition-all duration-200 shadow-md hover:shadow-lg">
-                  注册
-                </a>
+                </NavLink>
               </div>
             )}
           </div>

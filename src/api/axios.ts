@@ -40,7 +40,7 @@ instance.interceptors.response.use(
     return response.data;
   }, // 只返回 data 部分
   (error) => {
-    toast.error(error.message);
+    toast.error(error.response.data.error);
     return Promise.reject(error);
   }
 );
